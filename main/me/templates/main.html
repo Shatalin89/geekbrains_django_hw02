@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block Title %} Главная {% endblock %}
+{% block content %}
+
+            <div id="box_text">
+            {% if main_info %}
+               <p>Всех приветствую! </p>
+                <p>Меня зовут {{ main_info.lastname }} {{ main_info.name }}</p>
+                <p>Я родил{% if main_info.gender == 'M' %}ся:{% elif main_info.gender == 'W' %}ась:{% else %} ся\ась:{% endif %}
+                    {{ main_info.date|date:"d M Y"  }}</p>
+               <p>
+                   Мои увлечения:
+                   {% for hobby in main_hobby %}
+                   <li>{{ hobby|title }}</li>
+                   {% endfor %}
+               </p>
+           </div>
+           <img width="300px" height="300px" src="{% static 'img/me.jpg' %}">
+           {% else %}
+                <p>Информацию о себе, утаили</p>
+                </div>
+                <img src="{% static 'img/dead.png' %}">
+           {% endif %}
+
+{% endblock %}

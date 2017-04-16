@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block Title %} Учеба {% endblock %}
+{% block content %}
+           <div id="box_text">
+
+               {% if type == 'univer' %}
+                    <p>Университет: {{ univer|title }} </p>
+                    <p>Факультет: {{ faculty|title }} </p>
+                    <p>Специальность: {{ special|title }} </p>
+                    </div>
+                    <img src="{% static 'img/irgtu.jpg' %}">
+
+                {% else %}
+                    <p>С учебой пока что не сложилось</p>
+                    </div>
+                    <img src="{% static 'img/dead.png' %}">
+               {% endif %}
+{% endblock %}
